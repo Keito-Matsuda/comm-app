@@ -3,9 +3,12 @@ import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
 import { baselineAgent, supporterAgent, examinerAgent, mediatorAgent } from './agents/comm-agent';
 import { groupChatWorkflow } from './workflows/group-chat';
+import { checkEnWorkflow } from './workflows/check-en';
+
 
 export const mastra = new Mastra({
     //workflows: { groupChatWorkflow },
+    workflows: { checkEnWorkflow },
     agents: { baselineAgent, supporterAgent, examinerAgent, mediatorAgent },
     storage: new LibSQLStore({
         url: ":memory:",
