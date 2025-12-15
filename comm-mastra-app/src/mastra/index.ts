@@ -1,12 +1,12 @@
 import { Mastra } from '@mastra/core/mastra';
 import { PinoLogger } from '@mastra/loggers';
 import { LibSQLStore } from '@mastra/libsql';
-import { muscleAgent, gloomyAgent } from './agents/comm-agent';
+import { baselineAgent, supporterAgent, examinerAgent, mediatorAgent } from './agents/comm-agent';
 import { groupChatWorkflow } from './workflows/group-chat';
 
 export const mastra = new Mastra({
-    workflows: { groupChatWorkflow },
-    agents: { muscleAgent, gloomyAgent },
+    //workflows: { groupChatWorkflow },
+    agents: { baselineAgent, supporterAgent, examinerAgent, mediatorAgent },
     storage: new LibSQLStore({
         url: ":memory:",
     }),
@@ -21,3 +21,7 @@ export const mastra = new Mastra({
         default: { enabled: true },
     },
 });
+
+
+//baselineAgent, supporterAgent, examinerAgent, mediatorAgent
+//muscleAgent, gloomyAgent
