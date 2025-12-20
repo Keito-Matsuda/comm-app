@@ -1,7 +1,6 @@
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
 import { LibSQLStore } from '@mastra/libsql';
-import { createOpenAI } from '@ai-sdk/openai';
 
 const memory = new Memory({
   storage: new LibSQLStore({
@@ -9,7 +8,7 @@ const memory = new Memory({
   }),
 });
 
-const SHARED_MODEL = 'openai/gpt-4o-mini';
+const SHARED_MODEL = 'google/gemini-2.5-flash';
 
 // 1人目：脳筋の暑苦しい男
 export const muscleAgent = new Agent({

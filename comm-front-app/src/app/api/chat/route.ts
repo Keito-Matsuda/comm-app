@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     
     // 【修正箇所】 /start → /start-async に変更
     // start-async は runId なしで実行でき、inputData を受け取れます
-    const mastraUrl = `http://localhost:4111/api/workflows/groupChatWorkflow/start-async`;
+    const mastraUrl = `http://localhost:4111/api/workflows/checkEnWorkflow/start-async`;
     
     console.log(`Trying to connect: ${mastraUrl}`);
 
