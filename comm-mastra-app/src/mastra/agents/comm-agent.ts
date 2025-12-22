@@ -1,6 +1,8 @@
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
 import { LibSQLStore } from '@mastra/libsql';
+import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 
 const memory = new Memory({
   storage: new LibSQLStore({
@@ -8,7 +10,15 @@ const memory = new Memory({
   }),
 });
 
-const SHARED_MODEL = 'google/gemini-2.5-flash';
+const SHARED_MODEL = [
+  {
+    model: google('gemini-2.5-flash'),
+    maxRetries: 0,
+  },
+  {
+    model: openai('gpt-4o-mini')
+  },
+];
 
 // 共通指示
 const COMMON_FEEDBACK_INSTRUCTIONS = `
